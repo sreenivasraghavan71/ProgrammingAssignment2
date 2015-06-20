@@ -4,8 +4,8 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-inverseMat <<- NULL
-matrixCache <<- x
+inverseMat <<- NULL        ## Initialization of inverse MAtrix
+matrixCache <<- x         ## Caching the Original Matrix
 }
 
 
@@ -13,8 +13,8 @@ matrixCache <<- x
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-if(is.null(inverseMat)){
-  inverseMat <<- solve(x)
+if(is.null(inverseMat)){  ## Checking whether the inverse of given matrix has been calculated  
+  inverseMat <<- solve(x)  ## If not compute and store
   matrixCache <<- x
   inverseMat}
 else{
@@ -23,10 +23,10 @@ else{
   size1 <- nrow(x)
   size2 <- ncol(x)
   
-  if(sum1 == (size1*size2)){
-    inverseMat}
+  if(sum1 == (size1*size2)){  ## Check whether given matrix is same as cached matrix
+    inverseMat}               ## If yes return Cached Inverse of given matrix
   else{
-  inverseMat <<- solve(x)
+  inverseMat <<- solve(x)  ## If no, compute inverse and store it in cache
   matrixCache <<- x
   inverseMat
   }  
